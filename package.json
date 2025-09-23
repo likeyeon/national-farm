@@ -21,5 +21,8 @@
     "stylelint-config-standard-scss": "^16.0.0",
     "stylelint-order": "^7.0.0",
     "stylelint-scss": "^6.12.1"
+  },
+  "dependencies": {
+    "@stylelint/postcss-css-in-js": "^0.38.0"
   }
 }
