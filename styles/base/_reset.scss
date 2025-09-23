@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  font-family: 'Pretendard Variable', sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-family: 'Pretendard Variable', sans-serif;
+}
+
+body {
+  font-family: 'Pretendard Variable', sans-serif;
+}
+
+h1 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+button {
+  padding: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  border: 0;
+  background-color: transparent;
+
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+address {
+  font-style: normal;
+}
+
+
+

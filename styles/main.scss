@@ -1,5 +1,2 @@
-p {
-  color: black;
-  display: block;
-  text-transform: lowercase;
-}
+@use './base/normalize';
+@use './base/reset';
