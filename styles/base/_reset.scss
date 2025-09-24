@@ -19,8 +19,28 @@ body {
   color: colors.$dark;
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
   margin: 0;
+  line-height: 1.5;
+  letter-spacing: -0.3px;
+}
+
+.container {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: typography.$font-heading;
+  }
 }
 
 a {
