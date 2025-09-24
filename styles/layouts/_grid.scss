@@ -1,0 +1,18 @@
+@use '../mixins/responsive';
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 40px;
+  margin: 0 auto;
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @include responsive.responsive(T) {
+    width: 95%;
+    padding: 0;
+  }
+}
