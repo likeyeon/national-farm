@@ -1,0 +1,33 @@
+@use 'sass:map';
+
+$flex-map: (
+  start: flex-start,
+  end: flex-end,
+  between: space-between,
+  around: space-around,
+  stretch: stretch,
+  center: center,
+);
+
+@function _get-flex-value($key) {
+  @return map.get($flex-map, $key);
+}
+
+@mixin flexbox($jc, $ic) {
+  display: flex;
+  justify-content: _get-flex-value($jc);
+  align-items: _get-flex-value($ic);
+}
+
+@mixin inline-flexbox($jc, $ic) {
+  display: inline-flex;
+  justify-content: _get-flex-value($jc);
+  align-items: _get-flex-value($ic);
+}
+
+@mixin column-flexbox($jc, $ic) {
+  display: flex;
+  flex-direction: column;
+  justify-content: _get-flex-value($jc);
+  align-items: _get-flex-value($ic);
+}
