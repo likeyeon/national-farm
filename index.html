@@ -41,13 +41,27 @@
             <div class="col">
               <div class="gnb-top lg-only">
                 <div class="gnb-top-left">
-                  <div class="agency-group">
-                    <select name="agency" id="agency">
-                      <option value="1">관련기관</option>
-                      <option value="2">중앙행정기관</option>
-                      <option value="3">국내관련기관</option>
-                      <option value="4">해외관련기관</option>
-                    </select>
+                  <div class="agency-select">
+                    <span class="agency-selected">관련기관</span>
+                    <ul class="agency-listbox" role="listbox">
+                      <li
+                        class="focus"
+                        data-href="/"
+                        data-value="관련기관"
+                        role="option"
+                      >
+                        관련기관
+                      </li>
+                      <li data-href="/" data-value="중앙행정기관" role="option">
+                        중앙행정기관
+                      </li>
+                      <li data-href="/" data-value="국내관련기관" role="option">
+                        국내관련기관
+                      </li>
+                      <li data-href="/" data-value="해외관련기관" role="option">
+                        해외관련기관
+                      </li>
+                    </ul>
                   </div>
                 </div>
 
@@ -55,13 +69,16 @@
                   <ul class="util-group">
                     <li class="font-size">
                       <button aria-label="화면 확대">
-                        <i class="fa-solid fa-plus" aria-hidden></i>
+                        <i class="fa-solid fa-plus fa-xs" aria-hidden></i>
                       </button>
                       <button aria-label="화면 축소">
-                        <i class="fa-solid fa-minus" aria-hidden></i>
+                        <i class="fa-solid fa-minus fa-xs" aria-hidden></i>
                       </button>
                       <button aria-label="화면 초기화">
-                        <i class="fa-solid fa-rotate-right" aria-hidden></i>
+                        <i
+                          class="fa-solid fa-rotate-right fa-xs"
+                          aria-hidden
+                        ></i>
                       </button>
                       <span>화면크기</span>
                     </li>
@@ -73,11 +90,13 @@
                     </li>
                     <li class="lang">
                       <img src="./assets/images/icons/lang.svg" alt="언어" />
-                      <button>KOR</button>
-                      <button>ENG</button>
+                      <button class="kor">KOR</button>
+                      <button class="eng">ENG</button>
                     </li>
-                    <li class="menu">
-                      <button><i class="fa-solid fa-bars"></i>전체메뉴</button>
+                    <li class="all-menu">
+                      <a href="/">
+                        <i class="fa-solid fa-bars fa-lg"></i>전체메뉴
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -87,5 +106,7 @@
         </div>
       </div>
     </header>
+
+    <script src="./js/gnb-select.js"></script>
   </body>
 </html>
