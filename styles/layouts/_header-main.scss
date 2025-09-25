@@ -1,0 +1,113 @@
+@use '../mixins/flexbox';
+@use '../constants/colors';
+@use '../constants/typography';
+@use '../mixins/responsive';
+
+.header-main-wrapper {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+  .header-main {
+    height: 95px;
+    @include flexbox.flexbox(between);
+
+    .logo {
+      @include flexbox.flexbox;
+
+      a,
+      img {
+        display: block;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      &-sub {
+        margin-left: 20px;
+      }
+    }
+
+    .gnb {
+      height: 95px;
+
+      .menus {
+        @include flexbox.flexbox;
+        height: 100%;
+
+        .depth1 {
+          margin-left: 90px;
+          height: 100%;
+          position: relative;
+
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 0%;
+            height: 3px;
+            background-color: colors.$green;
+            bottom: 0;
+            left: 0;
+            transition: width 0.2s ease-in-out;
+          }
+
+          &.is-active,
+          &:hover,
+          &:active {
+            a {
+              color: colors.$green;
+              font-weight: 700;
+            }
+
+            &::after {
+              width: 100%;
+            }
+          }
+
+          a {
+            @include flexbox.flexbox;
+            height: 100%;
+            font-family: typography.$font-heading;
+            font-size: 1.37em;
+            font-weight: 500;
+            color: colors.$black;
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+  @include responsive.responsive(T) {
+    .container {
+      .row {
+        width: 100%;
+      }
+    }
+
+    .header-main {
+      height: 60px;
+
+      .logo {
+        margin-left: 3%;
+
+        &-main {
+          width: 190px;
+        }
+
+        &-sub {
+          width: 90px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 580px) {
+    .header-main {
+      .logo-sub {
+        display: none !important;
+      }
+    }
+  }
+}
