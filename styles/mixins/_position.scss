@@ -1,4 +1,4 @@
-@mixin pos-center-x($type) {
+@mixin pos-center-x($type: absolute) {
   @if $type == fixed or $type == absolute {
     position: $type;
     left: 50%;
@@ -6,7 +6,7 @@
   }
 }
 
-@mixin pos-center-y($type) {
+@mixin pos-center-y($type: absolute) {
   @if $type == fixed or $type == absolute {
     position: $type;
     top: 50%;
@@ -14,7 +14,7 @@
   }
 }
 
-@mixin pos-center($type) {
+@mixin pos-center($type: absolute) {
   @if $type == fixed or $type == absolute {
     position: $type;
     top: 50%;
