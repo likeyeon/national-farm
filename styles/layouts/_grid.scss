@@ -1,18 +1,25 @@
 @use '../mixins/responsive';
 
 .container {
-  width: 100%;
-  max-width: 1440px;
-  padding: 0 40px;
-  margin: 0 auto;
+  padding: 0;
 
   .row {
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 95%;
     display: flex;
     flex-wrap: wrap;
   }
 
-  @include responsive.responsive(T) {
-    width: 95%;
-    padding: 0;
+  .col {
+    width: 100%;
+  }
+
+  @include responsive.responsive(D) {
+    padding: 0 40px;
+
+    .row {
+      width: 100%;
+    }
   }
 }
