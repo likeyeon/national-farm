@@ -1,4 +1,4 @@
-const selectElement = document.querySelector('.gnb .agency-select');
+const selectElement = document.querySelector('.global-header .agency-select');
 const selectListBox = selectElement.querySelector('.agency-listbox');
 const selectOptionItems = selectListBox.querySelectorAll('li');
 const selectedSpan = selectElement.querySelector('.agency-selected');
