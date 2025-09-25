@@ -2,7 +2,7 @@
 @use '../mixins/position';
 @use '../constants/colors';
 
-.gnb-top {
+.header-top {
   @include flexbox.flexbox(between, center);
   font-size: 15px;
 
