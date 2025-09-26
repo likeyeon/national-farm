@@ -1,0 +1,141 @@
+@use '../constants/typography';
+@use '../constants/colors';
+
+.depth1.over {
+  .depth2 {
+    display: flex;
+  }
+}
+
+.depth2 {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f4f9f8;
+  width: 100vw;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 40px 0px;
+
+  &-title {
+    width: calc(100vw - 77%);
+    flex-grow: 0;
+    flex-shrink: 0;
+    text-align: right;
+
+    background:
+      url('../../assets/images/lnb-bg-01.png'),
+      url('../../assets/images/lnb-bg-02.png'), #f4f9f8;
+    background-repeat: no-repeat;
+    background-position:
+      top left,
+      bottom right;
+
+    .text {
+      font-family: typography.$font-heading;
+      font-size: 2.6em;
+      font-weight: 700;
+      margin-right: 4vw;
+      padding-top: 55px;
+    }
+  }
+
+  &-list {
+    background-color: colors.$white;
+    border-radius: 80px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    padding: 3.5em 2em 5em 5.5em;
+    gap: 40px 70px;
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+  }
+
+  .depth3 {
+    &-title {
+      color: colors.$green;
+      font-size: 1.25em;
+      display: block;
+      padding-bottom: 10px;
+      font-weight: 700;
+      text-align: left;
+      border-bottom: 1px solid colors.$green;
+    }
+
+    &-list {
+      display: flex;
+      padding-top: 10px;
+      padding-right: 10px;
+      flex-direction: column;
+    }
+
+    &-item {
+      position: relative;
+      padding-left: 10px;
+      text-align: left;
+      color: colors.$primary;
+      opacity: 0.9;
+      font-size: 1.05em;
+      line-height: 1.85;
+      white-space: nowrap;
+
+      a {
+        position: relative;
+
+        &::after {
+          content: '';
+          background-color: colors.$green;
+          bottom: 0;
+          display: inline-block;
+          left: 0;
+          width: 0;
+          height: 1px;
+          position: absolute;
+          transition: width 0.2s ease-in-out;
+        }
+      }
+
+      &::before {
+        content: '';
+        background-color: rgba(95, 99, 98, 0.3);
+        width: 3px;
+        height: 3px;
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+      }
+
+      &:hover {
+        a {
+          color: colors.$green;
+
+          &::after {
+            width: 100%;
+          }
+        }
+
+        &::before {
+          background-color: colors.$green;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1520px) {
+    &-list {
+      gap: 50px 50px;
+      padding: 3.5em 2em 5em 3.5em;
+    }
+
+    &-title {
+      .text {
+        font-size: 2.1em;
+      }
+    }
+  }
+}
