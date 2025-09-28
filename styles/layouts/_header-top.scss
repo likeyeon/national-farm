@@ -5,6 +5,7 @@
 .header-top {
   @include flexbox.flexbox(between, center);
   font-size: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
   &-left {
     .agency-select {
