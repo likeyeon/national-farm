@@ -152,28 +152,28 @@
           margin-right: 4px;
         }
 
-        button {
+        a {
           font-weight: 300;
+        }
 
-          &.kor {
-            padding-right: 6px;
-            position: relative;
+        &-kor {
+          padding-right: 6px;
+          position: relative;
 
-            &:before {
-              content: '';
-              position: absolute;
-              display: block;
-              width: 29px;
-              height: 2px;
-              left: 0px;
-              bottom: -3px;
-              background: #111;
-            }
+          &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 29px;
+            height: 2px;
+            left: -2%;
+            bottom: -3px;
+            background: #111;
           }
+        }
 
-          &.eng {
-            color: colors.$light;
-          }
+        &-eng {
+          color: colors.$light;
         }
       }
 
