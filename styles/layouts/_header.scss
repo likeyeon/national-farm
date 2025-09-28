@@ -1,3 +1,6 @@
+@use '../constants/z-indexes';
+
 .global-header {
   position: relative;
+  z-index: z-indexes.$header-level;
 }
