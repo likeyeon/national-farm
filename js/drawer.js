@@ -1,38 +1,31 @@
+// NOTE: drawer 열리고 닫히는 기능
+
 const drawer = document.querySelector('.drawer');
-const depth1Elements = drawer.querySelectorAll('.depth1');
-const depth2Items = drawer.querySelectorAll('.depth2-item');
+const drawerOverlay = document.querySelector('.overlay');
+const drawerCloseButton = drawer.querySelector('.close');
+const drawerMenuButton = document.querySelector('.header-main .drawer-button');
 
-// depth1 클릭 처리
-function handleDepth1Click(clickedElem) {
-  depth1Elements.forEach((el) => el.classList.remove('is-active'));
-  clickedElem.classList.add('is-active');
+// 3. drawer 이외의 바깥 영역 클릭 시 닫힘
+function closeDrawerOnClickingOutside(e) {
+  if (!drawer.contains(e.target) && !drawerMenuButton.contains(e.target)) {
+    drawer.classList.remove('is-active');
+    drawerOverlay.classList.remove('is-active');
+    window.removeEventListener('click', closeDrawerOnClickingOutside);
+  }
 }
 
-// depth3 토글 처리
-function toggleDepth3(elem) {
-  const depth3Element = elem.querySelector('.depth3');
-  const depth3List = depth3Element.querySelector('.depth3-list');
-  const depth3Height = depth3List.scrollHeight;
-
-  elem.classList.toggle('is-active');
-
-  depth3Element.style.maxHeight = elem.classList.contains('is-active')
-    ? depth3Height + 'px'
-    : 0;
+// 1. drawer-menu 버튼 클릭 시 열림
+function openDrawer() {
+  drawer.classList.add('is-active');
+  drawerOverlay.classList.add('is-active');
+  window.addEventListener('click', closeDrawerOnClickingOutside);
 }
 
-// depth1 이벤트 등록
-depth1Elements.forEach((elem) => {
-  const link = elem.querySelector('.depth1-title');
-  link.addEventListener('click', (e) => e.preventDefault()); // href 링크 이동 막기
+// 2. close 버튼 클릭 시 닫힘
+function closeDrawer() {
+  drawer.classList.remove('is-active');
+  drawerOverlay.classList.remove('is-active');
+}
 
-  elem.addEventListener('click', () => handleDepth1Click(elem));
-});
-
-// depth3 이벤트 등록
-depth2Items.forEach((elem) => {
-  const depth3Title = elem.querySelector('.depth3-title');
-  depth3Title.addEventListener('click', (e) => e.preventDefault()); // href 링크 이동 막기
-
-  depth3Title.addEventListener('click', () => toggleDepth3(elem));
-});
+drawerMenuButton.addEventListener('click', openDrawer);
+drawerCloseButton.addEventListener('click', closeDrawer);
