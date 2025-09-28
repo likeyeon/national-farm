@@ -1,5 +1,6 @@
 @use '../constants/typography';
 @use '../constants/colors';
+@use '../mixins/responsive';
 
 * {
   margin: 0;
@@ -81,4 +82,18 @@ ol {
 
 address {
   font-style: normal;
+}
+
+@include responsive.responsive(T) {
+  html,
+  body {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html,
+  body {
+    font-size: 13px;
+  }
 }
