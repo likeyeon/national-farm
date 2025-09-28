@@ -1,0 +1,23 @@
+@use '../constants/colors';
+@use '../constants/z-indexes';
+
+.overlay {
+  display: block;
+  width: 100%;
+  height: 100dvh;
+  background-color: colors.$black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 300ms ease-in-out,
+    visibility 300ms ease-in-out;
+  z-index: z-indexes.$overlay-level;
+
+  &.is-active {
+    visibility: visible;
+    opacity: 0.7;
+  }
+}
