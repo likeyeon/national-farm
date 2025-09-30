@@ -1,0 +1,112 @@
+@use '../constants/colors';
+@use '../mixins/flexbox';
+@use '../constants/z-indexes';
+
+.visual {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 3.5em;
+  padding-top: 2.5em;
+
+  &-banner {
+    width: 37%;
+    border-radius: 20px;
+    position: relative;
+  }
+
+  &-swiper {
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+
+    .swiper-slide {
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .swiper-button-wrapper {
+    @include flexbox.flexbox;
+    position: absolute;
+    bottom: 5%;
+    right: 7%;
+    background-color: colors.$white;
+    z-index: z-indexes.$swiper-button-level;
+    padding: 6px 20px 6px 26px;
+    border-radius: 28px;
+
+    button {
+      width: 25px;
+      height: 25px;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        width: auto;
+      }
+    }
+
+    .swiper-index {
+      margin-right: 10px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      position: static;
+      margin: 0;
+
+      .swiper-navigation-icon {
+        display: none;
+      }
+    }
+
+    .play-button-wrapper {
+      @include flexbox.flexbox;
+
+      button {
+        display: none;
+      }
+
+      .swiper-button-play img {
+        position: relative;
+        right: -1px;
+      }
+
+      .is-active {
+        @include flexbox.flexbox;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    &-banner {
+      width: 100%;
+    }
+
+    .swiper-button-wrapper {
+      bottom: -3%;
+      right: 8%;
+      padding: 4px 14px 4px 20px;
+
+      button {
+        width: 22px;
+        height: 22px;
+
+        img {
+          height: 14px;
+        }
+      }
+
+      .swiper-button-pause img {
+        width: auto;
+        height: 12px;
+      }
+    }
+  }
+}
