@@ -20,7 +20,7 @@
       left: 0;
       width: 30%;
       height: 100%;
-      background: colors.$green;
+      background: colors.$green-dark;
       border-radius: 0 40px 0 0;
     }
   }
@@ -83,8 +83,8 @@
         }
 
         .depth3-title {
-          color: colors.$green;
-          border-color: colors.$green;
+          color: colors.$green-dark;
+          border-color: colors.$green-dark;
 
           &:after {
             transform: translateY(-50%) rotate(90deg);

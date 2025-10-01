@@ -58,13 +58,13 @@
 
     .depth3 {
       &-title {
-        color: colors.$green;
+        color: colors.$green-dark;
         font-size: 1.25em;
         display: block;
         padding-bottom: 10px;
         font-weight: 700;
         text-align: left;
-        border-bottom: 1px solid colors.$green;
+        border-bottom: 1px solid colors.$green-dark;
       }
 
       &-list {
@@ -89,7 +89,7 @@
 
           &::after {
             content: '';
-            background-color: colors.$green;
+            background-color: colors.$green-dark;
             bottom: 0;
             display: inline-block;
             left: 0;
@@ -113,7 +113,7 @@
 
         &:hover {
           a {
-            color: colors.$green;
+            color: colors.$green-dark;
 
             &::after {
               width: 100%;
@@ -121,7 +121,7 @@
           }
 
           &::before {
-            background-color: colors.$green;
+            background-color: colors.$green-dark;
           }
         }
       }

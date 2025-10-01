@@ -43,7 +43,7 @@
           &:hover,
           &:active {
             .depth1-title {
-              color: colors.$green;
+              color: colors.$green-dark;
               font-weight: 700;
               position: relative;
 
@@ -68,7 +68,7 @@
               position: absolute;
               width: 0%;
               height: 3px;
-              background-color: colors.$green;
+              background-color: colors.$green-dark;
               bottom: 0;
               left: 0;
               transition: width 0.2s ease-in-out;
