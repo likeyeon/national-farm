@@ -1,0 +1,73 @@
+@use '../constants/colors';
+@use '../mixins/flexbox';
+@use '../mixins/responsive';
+
+.visual-info {
+  width: 100%;
+  flex-grow: 1;
+
+  .info-search {
+    width: 100%;
+    height: auto;
+
+    .search {
+      &-group {
+        width: 100%;
+        height: 55px;
+        border: 2px solid colors.$green;
+        border-radius: 10px 15px 15px 24px;
+        position: relative;
+      }
+
+      &-input {
+        width: 100%;
+        height: 100%;
+        padding: 0.7em 4.6em 0.7em 1.5em;
+        font-size: 1.2em;
+        color: #929292;
+
+        &::placeholder {
+          color: colors.$dark;
+          font-weight: 700;
+        }
+      }
+
+      &-button {
+        width: 55px;
+        height: 55px;
+        background-color: colors.$green;
+
+        font-size: 1.3em;
+        color: colors.$white;
+        border-radius: 0 15px 15px 0;
+        position: absolute;
+        right: -2px;
+        top: -2px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 580px) {
+    .info-search {
+      width: 100%;
+      height: auto;
+
+      .search {
+        &-group {
+          height: 50px;
+        }
+
+        &-input {
+          padding: 0.6em 4.6em 0.6em 1.5em;
+          font-size: 14px;
+        }
+
+        &-button {
+          width: 50px;
+          height: 50px;
+          font-size: 1.1em;
+        }
+      }
+    }
+  }
+}
