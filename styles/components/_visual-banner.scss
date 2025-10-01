@@ -1,14 +1,41 @@
 @use '../constants/colors';
 @use '../mixins/flexbox';
 @use '../constants/z-indexes';
+@use '../mixins/responsive';
+
+.section-01 {
+  position: relative;
+}
 
 .visual {
-  @include flexbox.flexbox(between);
+  @include flexbox.flexbox(between, end);
   gap: 40px;
   width: 100%;
   height: 100%;
   padding-bottom: 3.5em;
-  padding-top: 2.5em;
+  padding-top: 3em;
+  position: relative;
+
+  &-bg {
+    width: calc(50% + 420px);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #f4f6fa;
+    border-radius: 30px 0px 0px 190px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background: url('../../assets/images/visual-bg.png') no-repeat right
+        bottom / contain;
+      width: 826px;
+      height: 206px;
+    }
+  }
 
   &-banner {
     width: 37%;
@@ -36,11 +63,12 @@
     @include flexbox.flexbox;
     position: absolute;
     bottom: 5%;
-    right: 7%;
+    right: 8%;
     background-color: colors.$white;
     z-index: z-indexes.$swiper-button-level;
     padding: 6px 20px 6px 26px;
     border-radius: 28px;
+    gap: 4px;
 
     button {
       width: 25px;
@@ -55,7 +83,7 @@
     }
 
     .swiper-index {
-      margin-right: 10px;
+      margin-right: 6px;
     }
 
     .swiper-button-prev,
@@ -86,30 +114,67 @@
     }
   }
 
+  @include responsive.responsive(T) {
+    &-bg {
+      border-radius: 20px 0px 0px 100px;
+
+      &::after {
+        width: 70%;
+      }
+    }
+  }
+
   @media screen and (max-width: 1100px) {
     flex-direction: column;
+
+    &-bg {
+      width: 85%;
+    }
 
     &-banner {
       width: 100%;
     }
+  }
 
+  @media screen and (max-width: 600px) {
     .swiper-button-wrapper {
-      bottom: -3%;
-      right: 8%;
-      padding: 4px 14px 4px 20px;
+      gap: 0;
 
-      button {
-        width: 22px;
-        height: 22px;
+      .swiper-index {
+        margin-right: 10px;
+      }
 
-        img {
-          height: 14px;
-        }
+      button img {
+        height: 14px;
       }
 
       .swiper-button-pause img {
         width: auto;
         height: 12px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 580px) {
+    &-bg {
+      border-radius: 10px 0px 0px 70px;
+    }
+
+    .swiper-button-wrapper {
+      bottom: -3%;
+      right: 8%;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    padding-top: 2.5em;
+
+    .swiper-button-wrapper {
+      padding: 4px 14px 4px 20px;
+
+      button {
+        width: 22px;
+        height: 22px;
       }
     }
   }
