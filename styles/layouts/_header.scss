@@ -1,6 +1,8 @@
 @use '../constants/z-indexes';
+@use '../constants/colors';
 
 .global-header {
   position: relative;
   z-index: z-indexes.$header-level;
+  background-color: colors.$white;
 }
