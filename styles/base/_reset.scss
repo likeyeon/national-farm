@@ -43,6 +43,7 @@ p {
   h5,
   h6 {
     font-family: typography.$font-heading;
+    font-weight: 700;
   }
 }
 
@@ -55,7 +56,22 @@ p {
 
 .container h2 {
   font-size: 1.8em;
-  font-weight: 700;
+}
+
+.container h3 {
+  font-size: 1.7em;
+}
+
+.container h4 {
+  font-size: 1.4em;
+}
+
+input,
+select,
+textarea,
+button,
+img {
+  vertical-align: middle;
 }
 
 a {
@@ -111,6 +127,14 @@ address {
   .container h2 {
     font-size: 1.7em;
   }
+
+  .container h3 {
+    font-size: 1.6em;
+  }
+
+  .container h4 {
+    font-size: 1.3em;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -125,5 +149,13 @@ address {
 
   .container h2 {
     font-size: 1.6em;
+  }
+
+  .container h3 {
+    font-size: 1.5em;
+  }
+
+  .container h4 {
+    font-size: 1.2em;
   }
 }
