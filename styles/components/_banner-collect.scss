@@ -1,0 +1,201 @@
+@use '../constants/colors';
+@use '../mixins/flexbox';
+@use '../mixins/responsive';
+
+.banner-collect {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+
+  .banner {
+    &-mobile {
+      display: none;
+    }
+
+    &-wrapper {
+      @include flexbox.flexbox(between);
+      width: 100%;
+    }
+
+    &-title {
+      @include flexbox.flexbox;
+      padding-top: 3px;
+
+      img {
+        width: 25px;
+        height: 100%;
+        margin-right: 6px;
+      }
+
+      h3 {
+        font-size: 1.1em;
+        font-weight: 500;
+      }
+    }
+
+    &-contents {
+      width: calc(100% - 255px);
+    }
+
+    &-swiper {
+      height: 100%;
+      overflow: hidden;
+
+      .swiper-slide {
+        width: auto;
+
+        a {
+          position: relative;
+          display: inline-block;
+          height: 70px;
+          line-height: 70px;
+          padding: 0 27px;
+
+          &::after {
+            position: absolute;
+            content: '';
+            display: block;
+            right: -2px;
+            top: calc(50% - 2px);
+            width: 4px;
+            height: 4px;
+            background-color: #ced1d7;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+
+    &-control {
+      @include flexbox.flexbox;
+      gap: 4px;
+
+      button {
+        width: 25px;
+        height: 25px;
+
+        & > img {
+          width: auto;
+          height: auto;
+          max-width: 100%;
+          max-height: 100%;
+        }
+
+        &-prev,
+        &-next {
+          position: static;
+          margin: 0;
+
+          &-navigation-icon {
+            display: none;
+          }
+        }
+      }
+
+      .button-middle-wrapper {
+        button {
+          display: none;
+        }
+
+        .is-active {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .button-play {
+          position: relative;
+          right: -1px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    .banner {
+      &-mobile {
+        @include flexbox.flexbox(between);
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      &-wrapper {
+        .banner-title,
+        .banner-control {
+          display: none;
+        }
+      }
+
+      &-contents {
+        width: 100%;
+      }
+
+      &-swiper {
+        .swiper-slide a {
+          height: 40px;
+          line-height: 40px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .banner {
+      &-swiper {
+        .swiper-slide {
+          a {
+            padding: 0 22px;
+          }
+
+          img {
+            max-width: 85%;
+            max-height: 85%;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .banner {
+      &-control {
+        gap: 0;
+
+        button > img {
+          height: 14px;
+        }
+
+        .button-pause {
+          position: relative;
+          top: 1px;
+
+          img {
+            height: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .banner {
+      &-title {
+        img {
+          width: 20px;
+          margin-right: 2px;
+        }
+      }
+      &-swiper {
+        .swiper-slide a {
+          padding: 0 15px;
+        }
+      }
+
+      &-control {
+        button {
+          width: 22px;
+          height: 22px;
+        }
+      }
+    }
+  }
+}
