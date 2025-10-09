@@ -46,5 +46,21 @@ const popupSwiper = new Swiper('.popup-swiper', {
   },
 });
 
+const bannerSwiper = new Swiper('.banner-swiper', {
+  slidesPerView: 'auto',
+  spaceBetween: 20,
+  centeredSlides: true,
+  loop: true,
+  speed: 300,
+  autoplay: {
+    delay: 5000,
+  },
+  navigation: {
+    nextEl: '.banner-collect .button-next',
+    prevEl: '.banner-collect .button-prev',
+  },
+});
+
 export { visualSwiper };
 export { popupSwiper };
+export { bannerSwiper };
