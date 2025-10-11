@@ -1,0 +1,352 @@
+@use '../constants/colors';
+@use '../mixins/flexbox';
+@use '../mixins/responsive';
+
+.section-04 {
+  margin-bottom: 3em;
+  position: relative;
+
+  .decobox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #f4f6fa;
+    z-index: 0;
+    width: calc(((100% - 1440px) / 2) + 480px);
+    height: 100%;
+    border-radius: 0 110px 20px 0;
+  }
+
+  @media screen and (max-width: 1100px) {
+    .decobox {
+      width: 85%;
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    margin-top: 2em;
+  }
+
+  @media screen and (max-width: 600px) {
+    .decobox {
+      border-radius: 0 70px 10px 0;
+    }
+  }
+}
+
+.news {
+  width: 100%;
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
+  position: relative;
+
+  &-header {
+    width: 100%;
+    @include flexbox.flexbox(between, start);
+    position: relative;
+  }
+
+  &-title {
+    h1 {
+      margin-right: 15px;
+      display: inline-block;
+    }
+
+    p {
+      display: inline-block;
+      color: colors.$default;
+      font-size: 0.98em;
+      line-height: 1.3;
+    }
+  }
+
+  &-tab {
+    @include flexbox.flexbox(between);
+    width: 64%;
+    border-bottom: 2px solid #dedede;
+
+    &-list {
+      @include flexbox.flexbox(between);
+      gap: 8px;
+
+      li {
+        @include flexbox.flexbox;
+        text-align: center;
+        padding: 0.8em 1.4em;
+
+        &:has(.is-active) {
+          background-color: colors.$blue;
+          border-radius: 5px 5px 0 0;
+        }
+      }
+    }
+
+    &-item {
+      font-family: 'GmarketSans';
+      font-size: 1.26em;
+      font-weight: 500;
+      position: relative;
+      top: 2px;
+
+      &.is-active {
+        color: colors.$white;
+      }
+    }
+
+    &-more {
+      width: 34px;
+      height: 34px;
+      border-radius: 34px;
+      line-height: 34px;
+      text-align: center;
+      background: #5f6362;
+      box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.25);
+
+      &:hover {
+        background: colors.$blue;
+      }
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+
+      img {
+        padding-left: 2px;
+      }
+    }
+  }
+
+  &-board {
+    margin-top: 25px;
+
+    &-list {
+      @include flexbox.flexbox(between);
+      display: none;
+
+      &.is-active {
+        display: flex;
+      }
+    }
+
+    &-item {
+      background-color: colors.$white;
+      width: 23%;
+      box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 10px 20px 20px 60px;
+      transition: transform 0.2s ease-in-out;
+
+      &:hover {
+        transform: translate3d(0, -8px, 0);
+      }
+
+      a {
+        display: block;
+        padding: 40px;
+      }
+      .date-wrapper {
+        width: 74px;
+        height: 74px;
+        border-radius: 15px;
+        border: 5px solid #dfe0e0;
+        display: flex;
+        align-items: center;
+        box-sizing: content-box;
+
+        .date {
+          text-align: center;
+        }
+
+        .yearmonth {
+          color: colors.$light;
+          font-size: 0.9rem;
+          margin: 3px 0;
+        }
+
+        .day {
+          color: #6a6a6a;
+          font-size: 1.9rem;
+          font-weight: 800;
+        }
+      }
+
+      .text-wrapper {
+        .title {
+          display: -webkit-box;
+          margin: 16px 0;
+          height: 47px;
+          font-size: 1.2rem;
+          font-weight: 500;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          line-height: 1.3;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          word-break: keep-all;
+        }
+
+        .text {
+          display: -webkit-box;
+          height: 42px;
+          color: colors.$tertiary;
+          font-size: 1rem;
+          font-weight: 300;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          line-height: 1.4;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          word-break: keep-all;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1300px) {
+    &-board {
+      &-list {
+        gap: 20px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    &-header {
+      flex-direction: column;
+    }
+
+    &-title {
+      margin-bottom: 15px;
+    }
+
+    &-tab {
+      width: 100%;
+    }
+
+    &-board {
+      &-list {
+        flex-direction: column;
+      }
+
+      &-item {
+        width: 100%;
+
+        .item-inner {
+          @include flexbox.flexbox(start, start);
+        }
+
+        a {
+          padding: 24px 30px 30px 30px;
+        }
+
+        .text-wrapper {
+          margin-left: 12px;
+          width: 89%;
+
+          .title {
+            margin: 0;
+            height: 30px;
+            line-height: 1.45;
+            -webkit-line-clamp: 1;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    padding-top: 1.8em;
+    padding-bottom: 1.8em;
+  }
+
+  @media screen and (max-width: 600px) {
+    &-tab {
+      &-list {
+        width: 100%;
+
+        li {
+          padding: 10px 22px;
+        }
+      }
+
+      &-item {
+        font-size: 1em;
+      }
+
+      &-more {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+
+        img {
+          height: 11px;
+        }
+      }
+    }
+
+    &-board {
+      margin-top: 14px;
+
+      li {
+        border-radius: 10px 20px 20px 40px;
+      }
+
+      &-item {
+        .date-wrapper {
+          width: 64px;
+          height: 60px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    &-title {
+      p {
+        display: block;
+        font-size: 0.9em;
+        line-height: 1.3;
+      }
+    }
+
+    &-tab {
+      &-list li {
+        padding: 7px 12px;
+      }
+    }
+
+    &-board {
+      &-list {
+        gap: 10px;
+      }
+
+      &-item {
+        a {
+          padding: 30px 22px 20px 22px;
+        }
+
+        .date-wrapper {
+          .day {
+            font-size: 1.5rem;
+          }
+        }
+
+        .text-wrapper {
+          .title {
+            height: 25px;
+          }
+
+          .text {
+            height: 36px;
+          }
+        }
+      }
+    }
+  }
+}
