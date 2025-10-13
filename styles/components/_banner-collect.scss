@@ -176,7 +176,7 @@
     }
   }
 
-  @media screen and (max-width: 480px) {
+  @include responsive.responsive(S) {
     .banner {
       &-title {
         img {

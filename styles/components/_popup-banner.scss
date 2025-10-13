@@ -176,7 +176,7 @@
     }
   }
 
-  @media screen and (max-width: 480px) {
+  @include responsive.responsive(S) {
     .swiper-button-wrapper {
       min-width: 124px;
       max-width: 124px;

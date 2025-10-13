@@ -260,7 +260,7 @@
     }
   }
 
-  @media screen and (max-width: 480px) {
+  @include responsive.responsive(S) {
     .info-service {
       .service {
         &-title.mob {

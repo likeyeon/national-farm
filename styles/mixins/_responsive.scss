@@ -1,6 +1,12 @@
 @use '../constants/breakpoint';
 
 @mixin responsive($screen) {
+  @if $screen == 'S' {
+    @media screen and (max-width: breakpoint.$sm-breakpoint) {
+      @content;
+    }
+  }
+
   @if $screen == 'M' {
     @media screen and (max-width: breakpoint.$md-breakpoint) {
       @content;

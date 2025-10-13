@@ -166,7 +166,7 @@
     }
   }
 
-  @media screen and (max-width: 480px) {
+  @include responsive.responsive(S) {
     padding-top: 2.5em;
 
     .swiper-button-wrapper {

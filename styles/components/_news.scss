@@ -306,7 +306,7 @@
     }
   }
 
-  @media screen and (max-width: 480px) {
+  @include responsive.responsive(S) {
     &-title {
       p {
         display: block;

@@ -137,7 +137,7 @@ address {
   }
 }
 
-@media screen and (max-width: 480px) {
+@include responsive.responsive(S) {
   html,
   body {
     font-size: 13px;

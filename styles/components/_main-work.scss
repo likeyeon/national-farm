@@ -149,7 +149,7 @@
     }
   }
 
-  @media screen and (max-width: 480px) {
+  @include responsive.responsive(S) {
     &-item:nth-child(1) img {
       width: 40px;
     }

@@ -77,7 +77,7 @@
     width: 100%;
   }
 
-  @media screen and (max-width: 480px) {
+  @include responsive.responsive(S) {
     &-header {
       .util-group {
         .lang-kor:before {
