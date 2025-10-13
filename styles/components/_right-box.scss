@@ -61,11 +61,19 @@
       transition: all 0.1s;
       box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.1);
 
+      &:hover {
+        border-color: colors.$green;
+      }
+
       a {
         color: colors.$light;
         font-size: 0.9rem;
         padding: 0 18px;
         @include flexbox.flexbox(between);
+
+        &:hover {
+          color: colors.$green;
+        }
       }
     }
 
@@ -151,7 +159,7 @@
       border-radius: 40px 20px 20px 10px;
 
       &-left {
-        width: 100%;
+        width: 60%;
       }
 
       &-list {
@@ -174,6 +182,14 @@
 
       &-list {
         margin-top: 6px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 380px) {
+    .promo {
+      &-left {
+        width: 100%;
       }
     }
   }
