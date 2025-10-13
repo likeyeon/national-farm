@@ -5,10 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass -w styles/main.scss style.css",
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "sass": "sass -w styles/main.scss style.css"
   },
   "keywords": [],
   "author": "",
