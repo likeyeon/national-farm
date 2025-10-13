@@ -2,7 +2,10 @@
 @use '../constants/colors';
 
 .global-header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: z-indexes.$header-level;
   background-color: colors.$white;
 }

@@ -2,12 +2,13 @@
 @use '../constants/colors';
 @use '../constants/typography';
 @use '../mixins/responsive';
+@use '../constants/dimensions';
 
 .header-main-wrapper {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
   .header-main {
-    height: 95px;
+    height: dimensions.$header-main-height-lg;
     @include flexbox.flexbox(between);
 
     .logo {
@@ -29,7 +30,7 @@
     }
 
     .gnb {
-      height: 95px;
+      height: 100%;
 
       .menus {
         @include flexbox.flexbox;
@@ -104,7 +105,7 @@
     }
 
     .header-main {
-      height: 60px;
+      height: dimensions.$header-main-height-md;
 
       .logo {
         margin-left: 3%;

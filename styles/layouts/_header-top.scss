@@ -1,11 +1,13 @@
 @use '../mixins/flexbox';
 @use '../mixins/position';
 @use '../constants/colors';
+@use '../constants/dimensions';
 
 .header-top {
   @include flexbox.flexbox(between, center);
   font-size: 15px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  height: dimensions.$header-top-height;
 
   &-left {
     .agency-select {
