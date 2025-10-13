@@ -87,6 +87,7 @@
       font-weight: 500;
       position: relative;
       top: 2px;
+      color: colors.$dark;
 
       &.is-active {
         color: colors.$white;
@@ -141,12 +142,17 @@
 
       &:hover {
         transform: translate3d(0, -8px, 0);
+
+        .title {
+          text-decoration: underline;
+        }
       }
 
       a {
         display: block;
         padding: 40px;
       }
+
       .date-wrapper {
         width: 74px;
         height: 74px;
@@ -260,6 +266,16 @@
   @media screen and (max-width: 991px) {
     padding-top: 1.8em;
     padding-bottom: 1.8em;
+  }
+
+  @include responsive.responsive(T) {
+    &-board {
+      &-item {
+        &:hover {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+    }
   }
 
   @media screen and (max-width: 600px) {
