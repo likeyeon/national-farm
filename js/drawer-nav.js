@@ -18,6 +18,14 @@ function toggleDepth3(elem) {
   depth3Element.style.maxHeight = elem.classList.contains('is-active')
     ? depth3Height + 'px'
     : 0;
+
+  if (elem.classList.contains('is-active')) {
+    depth3Element.style.maxHeight = depth3Height + 'px';
+    depth3Element.removeAttribute('inert');
+  } else {
+    depth3Element.style.maxHeight = 0;
+    depth3Element.setAttribute('inert', '');
+  }
 }
 
 // depth1 이벤트 등록

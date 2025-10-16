@@ -96,7 +96,13 @@ textarea {
   border: 0;
   background-color: transparent;
 
-  &:focus {
+  /* 키보드로 버튼에 포커스 시 */
+  &:focus-visible {
+    outline: -webkit-focus-ring-color auto 1px;
+  }
+
+  /* 마우스, 터치로 버튼에 포커스 시 */
+  &:focus:not(:focus-visible) {
     box-shadow: none;
     outline: none;
   }

@@ -68,6 +68,7 @@
     &-list {
       @include flexbox.flexbox(between);
       gap: 8px;
+      order: 0;
 
       li {
         @include flexbox.flexbox;
@@ -102,6 +103,7 @@
       text-align: center;
       background: #5f6362;
       box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.25);
+      order: 1;
 
       &:hover {
         background: colors.$blue;
