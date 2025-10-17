@@ -47,8 +47,8 @@
               <div class="header-top">
                 <div class="header-top-left">
                   <div class="agency-select">
-                    <span class="agency-selected">관련기관</span>
-                    <ul class="agency-listbox" role="listbox">
+                    <button class="agency-selected">관련기관</button>
+                    <ul class="agency-listbox" role="listbox" inert>
                       <li class="focus" data-value="관련기관" role="option">
                         <a href="/">관련기관</a>
                       </li>
@@ -68,7 +68,11 @@
                 <div class="header-top-right">
                   <ul class="util-group">
                     <li class="font-size">
-                      <button type="button" aria-label="화면 확대">
+                      <button
+                        class="button-plus"
+                        type="button"
+                        aria-label="화면 확대"
+                      >
                         <i class="fa-solid fa-plus fa-xs" aria-hidden></i>
                       </button>
                       <button type="button" aria-label="화면 축소">
