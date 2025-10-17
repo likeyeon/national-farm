@@ -51,6 +51,10 @@
   .info-service {
     .service {
       &-title {
+        h2 {
+          font-size: 1.7em;
+        }
+
         &.mob {
           display: none;
         }
@@ -102,6 +106,8 @@
 
         .text {
           text-align: left;
+          font-weight: 400;
+          font-size: 16px;
         }
       }
     }
@@ -260,12 +266,27 @@
     }
   }
 
+  @include responsive.responsive(M) {
+    .info-service {
+      .service-title h2 {
+        font-size: 1.7em;
+      }
+    }
+  }
+
   @include responsive.responsive(S) {
     .info-service {
       .service {
-        &-title.mob {
-          margin-top: 26px;
+        &-title {
+          &.mob {
+            margin-top: 26px;
+          }
+
+          h2 {
+            font-size: 1.6em;
+          }
         }
+
         &-content {
           margin-top: 5px;
         }
