@@ -110,20 +110,6 @@
           top: 50%;
           left: 0;
         }
-
-        &:hover {
-          a {
-            color: colors.$green-dark;
-
-            &::after {
-              width: 100%;
-            }
-          }
-
-          &::before {
-            background-color: colors.$green-dark;
-          }
-        }
       }
     }
 

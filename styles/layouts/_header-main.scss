@@ -40,9 +40,7 @@
           margin-left: 90px;
           height: 100%;
 
-          &.over,
-          &:hover,
-          &:active {
+          &.over {
             .depth1-title {
               color: colors.$green-dark;
               font-weight: 700;
