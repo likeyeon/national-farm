@@ -1,0 +1,28 @@
+@use '../constants/colors';
+@use '../constants/z-indexes';
+
+#skip {
+  position: relative;
+  width: 100%;
+  z-index: z-indexes.$skip-button-level;
+
+  a {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: auto;
+    background-color: colors.$black;
+    color: colors.$white;
+    line-height: 38px;
+    white-space: nowrap;
+    opacity: 0;
+    padding: 0 10px;
+
+    &:focus,
+    &:active {
+      top: 0;
+      opacity: 1;
+      transition: 0.3s;
+    }
+  }
+}
