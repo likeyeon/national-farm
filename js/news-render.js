@@ -1,6 +1,23 @@
+import { keydownTab } from './keycode.js';
+
 let newsData;
 const boardList = document.querySelectorAll('.news .news-board-list');
-const newsTabItems = document.querySelectorAll('.news .news-tab-item');
+
+function onShiftTabBoardItem() {
+  boardList.forEach((list) => {
+    const newsBoardListItems = list.querySelectorAll('.news-board-item');
+
+    newsBoardListItems[0].addEventListener('keydown', function (e) {
+      if (e.shiftKey && e.keyCode === keydownTab) {
+        const activeNewBoardTabItem = document.querySelector(
+          '.news .news-tab-item.is-active'
+        );
+        activeNewBoardTabItem.focus();
+        // e.preventDefault();
+      }
+    });
+  });
+}
 
 function renderNews(category, categoryIndex) {
   const items = newsData[category];
@@ -29,17 +46,6 @@ function renderNews(category, categoryIndex) {
   });
 }
 
-function updateNewsTab(item, idx) {
-  newsTabItems.forEach((item) => {
-    item.classList.remove('is-active');
-  });
-  boardList.forEach((list) => {
-    list.classList.remove('is-active');
-  });
-  item.classList.add('is-active');
-  boardList[idx].classList.add('is-active');
-}
-
 fetch('../data/news-data.json')
   .then((response) => {
     if (!response.ok) {
@@ -50,13 +56,11 @@ fetch('../data/news-data.json')
   .then((obj) => {
     newsData = obj;
     Object.keys(obj).forEach((key, idx) => renderNews(key, idx));
+
+    onShiftTabBoardItem();
   })
   .catch((error) => {
     console.error('데이터 불러오기 실패:', error);
     document.querySelector('.news-board').innerHTML =
       '<p class="error">데이터를 불러오지 못했습니다.</p>';
   });
-
-newsTabItems.forEach((item, idx) => {
-  item.addEventListener('click', () => updateNewsTab(item, idx));
-});
