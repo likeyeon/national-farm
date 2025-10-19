@@ -13,7 +13,7 @@ function onShiftTabBoardItem() {
           '.news .news-tab-item.is-active'
         );
         activeNewBoardTabItem.focus();
-        // e.preventDefault();
+        e.preventDefault();
       }
     });
   });
