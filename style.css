@@ -1181,6 +1181,8 @@ main {
   white-space: nowrap;
   opacity: 0;
   padding: 0 10px;
+  width: 100%;
+  text-align: center;
 }
 #skip a:focus, #skip a:active {
   top: 0;
