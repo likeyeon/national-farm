@@ -12,6 +12,11 @@ const visualSwiper = new Swiper('.visual-swiper', {
     prevEl: '.visual-banner .swiper-button-prev',
   },
 
+  a11y: {
+    prevSlideMessage: '이전 항목으로 이동',
+    nextSlideMessage: '다음 항목으로 이동',
+  },
+
   on: {
     slideChange: function () {
       const currentIdx = this.realIndex + 1;
@@ -33,6 +38,11 @@ const popupSwiper = new Swiper('.popup-swiper', {
   navigation: {
     nextEl: '.popup .swiper-button-next',
     prevEl: '.popup .swiper-button-prev',
+  },
+
+  a11y: {
+    prevSlideMessage: '이전 항목으로 이동',
+    nextSlideMessage: '다음 항목으로 이동',
   },
 
   on: {
@@ -58,6 +68,11 @@ const bannerSwiper = new Swiper('.banner-swiper', {
   navigation: {
     nextEl: '.banner-collect .button-next',
     prevEl: '.banner-collect .button-prev',
+  },
+
+  a11y: {
+    prevSlideMessage: '이전 항목으로 이동',
+    nextSlideMessage: '다음 항목으로 이동',
   },
 });
 
