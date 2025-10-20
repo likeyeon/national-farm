@@ -31,11 +31,12 @@
       linear-gradient(321deg, #1aa79e -41.03%, #243458 31.83%),
       linear-gradient(317deg, #177256 -25.46%, #0b4090 50.27%), #177256;
 
-    h4 {
+    h3 {
       word-break: keep-all;
       vertical-align: middle;
       padding-top: 53px;
       line-height: 1.2;
+      font-size: 1.4em;
     }
   }
 
@@ -147,6 +148,12 @@
         margin-bottom: 0;
       }
     }
+
+    &-title {
+      .title h3 {
+        font-size: 1.3em;
+      }
+    }
   }
 
   @include responsive.responsive(S) {
@@ -167,6 +174,12 @@
     }
     &-item:nth-child(6) img {
       width: 44px;
+    }
+
+    &-title {
+      .title h3 {
+        font-size: 1.2em;
+      }
     }
   }
 }
