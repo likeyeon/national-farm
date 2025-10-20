@@ -1179,13 +1179,13 @@ main {
   color: #fff;
   line-height: 38px;
   white-space: nowrap;
-  opacity: 0;
   padding: 0 10px;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
 }
 #skip a:focus, #skip a:active {
   top: 0;
-  opacity: 1;
-  transition: 0.3s;
+  transform: translateY(0);
 }
 
 .section-01 {
