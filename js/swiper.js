@@ -5,6 +5,7 @@ const visualSwiper = new Swiper('.visual-swiper', {
   speed: 800,
   autoplay: {
     delay: 7000,
+    disableOnInteraction: false,
   },
 
   navigation: {
@@ -12,19 +13,25 @@ const visualSwiper = new Swiper('.visual-swiper', {
     prevEl: '.visual-banner .swiper-button-prev',
   },
 
+  pagination: {
+    el: '.visual-banner .swiper-index',
+    type: 'fraction',
+    renderFraction: function (currentClass, totalClass) {
+      return (
+        '<b><span class="' +
+        currentClass +
+        '"></span></b>' +
+        ' - ' +
+        '<span class="' +
+        totalClass +
+        '"></span>'
+      );
+    },
+  },
+
   a11y: {
     prevSlideMessage: '이전 항목으로 이동',
     nextSlideMessage: '다음 항목으로 이동',
-  },
-
-  on: {
-    slideChange: function () {
-      const currentIdx = this.realIndex + 1;
-      const visualSwiperCurrentIndex = document.querySelector(
-        '.visual-banner .swiper-index-current'
-      );
-      visualSwiperCurrentIndex.innerText = currentIdx;
-    },
   },
 });
 
@@ -33,6 +40,7 @@ const popupSwiper = new Swiper('.popup-swiper', {
   speed: 300,
   autoplay: {
     delay: 7000,
+    disableOnInteraction: false,
   },
 
   navigation: {
@@ -40,19 +48,25 @@ const popupSwiper = new Swiper('.popup-swiper', {
     prevEl: '.popup .swiper-button-prev',
   },
 
+  pagination: {
+    el: '.popup .swiper-index',
+    type: 'fraction',
+    renderFraction: function (currentClass, totalClass) {
+      return (
+        '<b><span class="' +
+        currentClass +
+        '"></span></b>' +
+        ' - ' +
+        '<span class="' +
+        totalClass +
+        '"></span>'
+      );
+    },
+  },
+
   a11y: {
     prevSlideMessage: '이전 항목으로 이동',
     nextSlideMessage: '다음 항목으로 이동',
-  },
-
-  on: {
-    slideChange: function () {
-      const currentIdx = this.realIndex + 1;
-      const popupSwiperCurrentIndex = document.querySelector(
-        '.popup .swiper-index-current'
-      );
-      popupSwiperCurrentIndex.innerText = currentIdx;
-    },
   },
 });
 
@@ -64,6 +78,7 @@ const bannerSwiper = new Swiper('.banner-swiper', {
   speed: 300,
   autoplay: {
     delay: 5000,
+    disableOnInteraction: false,
   },
   navigation: {
     nextEl: '.banner-collect .button-next',

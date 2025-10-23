@@ -12,11 +12,11 @@ const visualSwiperPlayButton = visualSwiperBanner.querySelector(
 );
 
 // .swiper-index-last 숫자값 넣기
-const visualSwiperLastIndex =
-  visualSwiperBanner.querySelector('.swiper-index-last');
-const visualSwiperSlideList =
-  visualSwiperBanner.querySelectorAll('.swiper-slide').length;
-visualSwiperLastIndex.textContent = visualSwiperSlideList;
+// const visualSwiperLastIndex =
+//   visualSwiperBanner.querySelector('.swiper-index-last');
+// const visualSwiperSlideList =
+//   visualSwiperBanner.querySelectorAll('.swiper-slide').length;
+// visualSwiperLastIndex.textContent = visualSwiperSlideList;
 
 // 슬라이드 중지
 function stopVisualSwiper() {

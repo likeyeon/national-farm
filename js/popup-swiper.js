@@ -11,13 +11,6 @@ const popupSwiperPlayButton = popupSwiperBanner.querySelector(
   '.swiper-button-play'
 );
 
-// .swiper-index-last 숫자값 넣기
-const popupSwiperLastIndex =
-  popupSwiperBanner.querySelector('.swiper-index-last');
-const popupSwiperSlideList =
-  popupSwiperBanner.querySelectorAll('.swiper-slide').length;
-popupSwiperLastIndex.textContent = popupSwiperSlideList;
-
 // 슬라이드 중지
 function stoppopupSwiper() {
   popupSwiperPlayButtonList.forEach((button) => {
