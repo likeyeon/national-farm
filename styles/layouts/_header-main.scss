@@ -1,7 +1,8 @@
 @use '../mixins/flexbox';
+@use '../mixins/responsive';
+@use '../mixins/compatibility';
 @use '../constants/colors';
 @use '../constants/typography';
-@use '../mixins/responsive';
 @use '../constants/dimensions';
 
 .header-top-wrapper {
@@ -95,6 +96,10 @@
         i {
           color: white;
           font-size: 1.5em;
+
+          &.fas {
+            display: none;
+          }
         }
       }
     }
@@ -136,6 +141,18 @@
   @media screen and (max-width: 1300px) {
     .header-main .gnb .menus .depth1 {
       margin-left: 66px;
+    }
+  }
+
+  @include compatibility.compatibility {
+    .header-main .drawer-button button i {
+      &.fas {
+        display: inline;
+      }
+
+      &.fa {
+        display: none;
+      }
     }
   }
 }

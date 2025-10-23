@@ -1,5 +1,6 @@
 @use '../mixins/flexbox';
 @use '../mixins/responsive';
+@use '../mixins/compatibility';
 @use '../constants/colors';
 
 .box-wrapper {
@@ -73,6 +74,12 @@
 
         &:hover {
           color: colors.$green;
+        }
+      }
+
+      i {
+        &.fas {
+          display: none;
         }
       }
     }
@@ -190,6 +197,20 @@
     .promo {
       &-left {
         width: 100%;
+      }
+    }
+  }
+
+  @include compatibility.compatibility {
+    .promo-item {
+      i {
+        &.fas {
+          display: block;
+        }
+
+        &.fa {
+          display: none;
+        }
       }
     }
   }

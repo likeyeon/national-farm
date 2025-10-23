@@ -1,5 +1,6 @@
 @use '../mixins/flexbox';
 @use '../mixins/position';
+@use '../mixins/compatibility';
 @use '../constants/colors';
 @use '../constants/dimensions';
 
@@ -133,6 +134,10 @@
             height: 100%;
             line-height: 1;
             vertical-align: 1em;
+
+            &.fas {
+              display: none;
+            }
           }
         }
 
@@ -197,6 +202,24 @@
 
         a {
           font-weight: 500;
+        }
+      }
+    }
+  }
+
+  @include compatibility.compatibility {
+    .util-group .font-size button {
+      i {
+        &.fas {
+          display: flex;
+        }
+
+        &.fa {
+          display: none;
+        }
+
+        &.fa-undo {
+          transform: scaleX(-1);
         }
       }
     }

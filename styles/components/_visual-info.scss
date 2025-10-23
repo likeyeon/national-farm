@@ -1,6 +1,7 @@
 @use '../constants/colors';
 @use '../mixins/flexbox';
 @use '../mixins/responsive';
+@use '../mixins/compatibility';
 
 .visual-info {
   width: 100%;
@@ -44,6 +45,26 @@
         position: absolute;
         right: -2px;
         top: -2px;
+
+        i {
+          &.fas {
+            display: none;
+          }
+        }
+      }
+    }
+
+    @include compatibility.compatibility {
+      .search-button {
+        i {
+          &.fas {
+            display: inline-block;
+          }
+
+          &.fa {
+            display: none;
+          }
+        }
       }
     }
   }

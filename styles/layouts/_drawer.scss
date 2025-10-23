@@ -1,6 +1,7 @@
 @use '../constants/colors';
 @use '../mixins/flexbox';
 @use '../mixins/responsive';
+@use '../mixins/compatibility';
 @use '../constants/z-indexes';
 
 .drawer {
@@ -70,6 +71,10 @@
     .close {
       color: #4a4a4a;
       font-size: 1.8em;
+
+      .fas {
+        display: none;
+      }
     }
   }
 
@@ -88,6 +93,18 @@
 
       img {
         height: 15px;
+      }
+    }
+  }
+
+  @include compatibility.compatibility {
+    .close {
+      .fas {
+        display: inline-block;
+      }
+
+      .fa {
+        display: none;
       }
     }
   }
