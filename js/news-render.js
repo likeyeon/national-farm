@@ -1,4 +1,5 @@
 import { keydownTab } from './keycode.js';
+import 'whatwg-fetch';
 
 let newsData;
 const boardList = document.querySelectorAll('.news .news-board-list');
