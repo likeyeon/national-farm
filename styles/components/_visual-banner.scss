@@ -2,6 +2,7 @@
 @use '../mixins/flexbox';
 @use '../constants/z-indexes';
 @use '../mixins/responsive';
+@use '../mixins/compatibility';
 
 .section-01 {
   position: relative;
@@ -84,12 +85,17 @@
 
     .swiper-index {
       margin-right: 6px;
+      width: auto;
     }
 
     .swiper-button-prev,
     .swiper-button-next {
-      position: static;
+      position: relative;
       margin: 0;
+      background-image: none;
+      left: 0;
+      right: 0;
+      top: -1px;
 
       .swiper-navigation-icon {
         display: none;
@@ -110,6 +116,19 @@
 
       .is-active {
         @include flexbox.flexbox;
+      }
+    }
+  }
+
+  @include compatibility.compatibility {
+    &-banner {
+      margin-right: 40px;
+    }
+
+    @media screen and (max-width: 1100px) {
+      &-banner {
+        margin-right: 0px;
+        margin-bottom: 40px;
       }
     }
   }

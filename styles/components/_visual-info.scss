@@ -4,7 +4,7 @@
 @use '../mixins/compatibility';
 
 .visual-info {
-  width: 100%;
+  width: calc(100% - 37%);
   flex-grow: 1;
 
   .info-search {
@@ -48,20 +48,6 @@
 
         i {
           &.fas {
-            display: none;
-          }
-        }
-      }
-    }
-
-    @include compatibility.compatibility {
-      .search-button {
-        i {
-          &.fas {
-            display: inline-block;
-          }
-
-          &.fa {
             display: none;
           }
         }
@@ -155,6 +141,8 @@
   }
 
   @media screen and (max-width: 1100px) {
+    width: 100%;
+
     .info-service {
       .service {
         &-list {
@@ -310,6 +298,64 @@
 
         &-content {
           margin-top: 5px;
+        }
+      }
+    }
+  }
+
+  @include compatibility.compatibility {
+    .info-search {
+      .search-button {
+        i {
+          &.fas {
+            display: inline-block;
+          }
+
+          &.fa {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .info-service {
+      .service {
+        &-item {
+          &:nth-child(3n - 1) {
+            margin-left: 20px;
+            margin-right: 20px;
+          }
+
+          &:nth-child(-n + 6) {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 1400px) {
+      .info-service {
+        .service {
+          &-item {
+            &:nth-child(3n - 1) {
+              margin-left: 14px;
+              margin-right: 14px;
+            }
+
+            &:nth-child(-n + 6) {
+              margin-bottom: 14px;
+            }
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 640px) {
+      .info-service {
+        .service {
+          &-item {
+            width: 30%;
+          }
         }
       }
     }

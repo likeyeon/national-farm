@@ -5,14 +5,13 @@
 
 .section-03 {
   position: relative;
+  margin-top: 4em;
 
   .left-box {
     @include flexbox.flexbox(between, end);
     gap: 40px;
     width: calc(100% - 520px);
-    height: 100%;
-    padding-bottom: 3.5em;
-    padding-top: 3em;
+    // height: 100%;
     position: relative;
   }
 
@@ -28,11 +27,14 @@
       flex-direction: column;
     }
   }
+
+  @media screen and (max-width: 991px) {
+    margin-top: 2.813em;
+  }
 }
 
 .popup {
   width: 480px;
-  //   height: 100%;
   border-radius: 20px;
   position: relative;
 
@@ -97,6 +99,7 @@
 
     .swiper-index {
       color: colors.$white;
+      width: auto;
     }
 
     .swiper-control {
@@ -106,8 +109,12 @@
 
     .swiper-button-prev,
     .swiper-button-next {
-      position: static;
+      position: relative;
       margin: 0;
+      background-image: none;
+      left: 0;
+      right: 0;
+      top: -1px;
 
       .swiper-navigation-icon {
         display: none;
@@ -185,6 +192,12 @@
         width: 22px;
         height: 22px;
       }
+    }
+  }
+
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .swiper-index {
+      margin-right: 10px;
     }
   }
 }

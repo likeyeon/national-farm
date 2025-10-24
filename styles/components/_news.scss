@@ -1,8 +1,10 @@
 @use '../constants/colors';
 @use '../mixins/flexbox';
 @use '../mixins/responsive';
+@use '../mixins/compatibility';
 
 .section-04 {
+  margin-top: 3.5em;
   margin-bottom: 3em;
   position: relative;
 
@@ -75,9 +77,13 @@
         text-align: center;
         padding: 0.8em 1.4em;
 
-        &:has(.is-active) {
+        &.is-active {
           background-color: colors.$blue;
           border-radius: 5px 5px 0 0;
+
+          .news-tab-item {
+            color: colors.$white;
+          }
         }
       }
     }
@@ -89,10 +95,6 @@
       position: relative;
       top: 2px;
       color: colors.$dark;
-
-      &.is-active {
-        color: colors.$white;
-      }
     }
 
     &-more {
@@ -362,6 +364,20 @@
 
           .text {
             height: 36px;
+          }
+        }
+      }
+    }
+  }
+
+  @include compatibility.compatibility {
+    @media screen and (max-width: 1300px) {
+      &-board {
+        &-item {
+          margin-bottom: 20px;
+
+          &:nth-last-child {
+            margin-bottom: 0;
           }
         }
       }

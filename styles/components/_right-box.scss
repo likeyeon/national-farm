@@ -46,6 +46,7 @@
 
     &-list {
       @include flexbox.flexbox(start);
+      flex-direction: column;
       gap: 8px;
       flex-wrap: wrap;
       margin-top: 12%;
@@ -112,6 +113,7 @@
       padding: 30px 45px;
 
       &-list {
+        flex-direction: row;
         gap: 20px;
         margin-top: 8%;
       }
@@ -138,6 +140,14 @@
           height: 100%;
         }
       }
+    }
+  }
+
+  @media screen and (max-width: 860px) {
+    .promo-list {
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
     }
   }
 
@@ -170,7 +180,6 @@
       }
 
       &-list {
-        gap: 8px;
         margin-top: 4%;
       }
 
@@ -202,14 +211,48 @@
   }
 
   @include compatibility.compatibility {
-    .promo-item {
-      i {
-        &.fas {
-          display: block;
+    .promo {
+      margin-bottom: 21px;
+
+      &-item {
+        i {
+          &.fas {
+            display: block;
+          }
+
+          &.fa {
+            display: none;
+          }
         }
 
-        &.fa {
-          display: none;
+        &:nth-child(-n + 2) {
+          margin-bottom: 8px;
+        }
+      }
+    }
+
+    .social-item {
+      margin-right: 6px;
+
+      &:nth-last-child {
+        margin-right: 0;
+      }
+    }
+
+    @media screen and (max-width: 1520px) {
+      .promo-item {
+        &:nth-child(-n + 2) {
+          margin-bottom: 0px;
+          margin-right: 20px;
+        }
+      }
+    }
+
+    @media screen and (max-width: 860px) {
+      .promo-item {
+        &:nth-child(-n + 2) {
+          margin-bottom: 0px;
+          margin-right: 8px;
         }
       }
     }

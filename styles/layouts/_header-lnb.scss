@@ -1,5 +1,6 @@
 @use '../constants/typography';
 @use '../constants/colors';
+@use '../mixins/compatibility';
 
 .header-main {
   .depth1.over {
@@ -113,6 +114,20 @@
       }
     }
 
+    @include compatibility.compatibility {
+      &-item {
+        margin-right: 70px;
+
+        &:nth-child(4n) {
+          margin-right: 0;
+        }
+
+        &:nth-child(-n + 4) {
+          margin-bottom: 40px;
+        }
+      }
+    }
+
     @media screen and (max-width: 1520px) {
       &-list {
         gap: 50px 50px;
@@ -122,6 +137,20 @@
       &-title {
         .text {
           font-size: 2.1em;
+        }
+      }
+
+      @include compatibility.compatibility {
+        &-item {
+          margin-right: 50px;
+
+          &:nth-child(4n) {
+            margin-right: 0;
+          }
+
+          &:nth-child(-n + 4) {
+            margin-bottom: 50px;
+          }
         }
       }
     }

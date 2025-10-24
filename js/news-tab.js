@@ -13,12 +13,12 @@ const newsTabMoreButton = document.querySelector('.news .news-tab-more a');
 
 function updateNewsTab(item, idx) {
   newsTabItems.forEach((item) => {
-    item.classList.remove('is-active');
+    item.parentNode.classList.remove('is-active');
   });
   newsBoardList.forEach((list) => {
     list.classList.remove('is-active');
   });
-  item.classList.add('is-active');
+  item.parentNode.classList.add('is-active');
   newsBoardList[idx].classList.add('is-active');
 }
 

@@ -1,10 +1,11 @@
 @use '../constants/colors';
 @use '../mixins/flexbox';
 @use '../mixins/responsive';
+@use '../mixins/compatibility';
 @use '../constants/typography';
 
 .help {
-  width: calc(100% - 518px);
+  width: calc(100% - 520px);
 
   &-title {
     margin-bottom: 21px;
@@ -70,10 +71,6 @@
     }
   }
 
-  @media screen and (max-width: 1520px) {
-    width: 100%;
-  }
-
   @media screen and (max-width: 1360px) {
     width: 100%;
 
@@ -114,6 +111,22 @@
         font-size: 13px;
         width: 60px;
       }
+    }
+  }
+
+  @include compatibility.compatibility {
+    &-item {
+      &:nth-child(odd) {
+        margin-right: 12px;
+      }
+
+      &:nth-child(-n + 2) {
+        margin-bottom: 12px;
+      }
+    }
+
+    @media screen and (max-width: 1360px) {
+      margin-top: 40px;
     }
   }
 }

@@ -31,6 +31,7 @@
 
     .util-group {
       @include flexbox.flexbox(start);
+      margin-right: auto;
 
       a {
         @include flexbox.flexbox(start);
