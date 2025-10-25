@@ -41,6 +41,6 @@ module.exports = {
       },
     ],
   },
-  mode: 'development',
+  mode: 'production',
   target: ['web', 'es5'],
 };
