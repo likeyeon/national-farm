@@ -1,51 +1,59 @@
 import { bannerSwiper } from './swiper.js';
 
-const bannerCollect = document.querySelector('.banner-collect');
-const bannerSwiperMiddleButtonList = bannerCollect.querySelectorAll(
-  '.button-middle-wrapper button'
+const bannerWrapper = document.querySelector('.banner-collect .banner-wrapper');
+const bannerSwiperPlayButtonList = bannerWrapper.querySelectorAll(
+  '.play-button-wrapper button'
 );
-const bannerSwiperPauseButtonList =
-  bannerCollect.querySelectorAll('.button-pause');
-const bannerSwiperPlayButtonList =
-  bannerCollect.querySelectorAll('.button-play');
+const bannerSwiperPlayImgList = bannerWrapper.querySelectorAll(
+  '.play-button-wrapper .button-play'
+);
+const bannerSwiperPauseImgList = bannerWrapper.querySelectorAll(
+  '.play-button-wrapper .button-pause'
+);
+const bannerSwiperWrapper = bannerWrapper.querySelector('.swiper-wrapper');
+let wasPlayingBeforeBannerSwiperFocus = true;
 
-// 슬라이드 중지
-function stopbannerSwiper() {
-  bannerSwiperMiddleButtonList.forEach((button) => {
-    button.classList.remove('is-active');
-    button.setAttribute('aria-hidden', '');
-  });
-  bannerSwiperPlayButtonList.forEach((button) => {
-    button.classList.add('is-active');
-  });
-  bannerSwiperPlayButtonList.forEach((button) => {
-    button.removeAttribute('aria-hidden');
+function setBannerSwiperPlayingState(isPlaying) {
+  if (isPlaying) {
+    bannerSwiper.autoplay.start();
+    bannerSwiperPlayImgList.forEach((img) => img.classList.remove('is-active'));
+    bannerSwiperPauseImgList.forEach((img) => img.classList.add('is-active'));
+    bannerSwiperWrapper.setAttribute('aria-live', 'off');
+  } else {
     bannerSwiper.autoplay.stop();
-  });
+    bannerSwiperPlayImgList.forEach((img) => img.classList.add('is-active'));
+    bannerSwiperPauseImgList.forEach((img) =>
+      img.classList.remove('is-active')
+    );
+    bannerSwiperWrapper.setAttribute('aria-live', 'polite');
+  }
 }
 
-// 슬라이드 재생
-function playbannerSwiper() {
-  bannerSwiperMiddleButtonList.forEach((button) => {
-    button.classList.remove('is-active');
-    button.setAttribute('aria-hidden', '');
-  });
-  bannerSwiperPauseButtonList.forEach((button) => {
-    button.classList.add('is-active');
-  });
-  bannerSwiperPauseButtonList.forEach((button) => {
-    button.removeAttribute('aria-hidden');
-  });
-  bannerSwiper.autoplay.start();
+function toggleBannerSwiperPlay() {
+  const isCurrentlyPlaying = bannerSwiper.autoplay.running;
+  setBannerSwiperPlayingState(!isCurrentlyPlaying);
 }
 
-// bannerSwiperPauseButton.addEventListener('click', stopbannerSwiper);
-// bannerSwiperPlayButton.addEventListener('click', playbannerSwiper);
+function handleBannerSwiperFocusIn(e) {
+  const wasFoucsOutsideSwiper = !bannerSwiper.el.contains(e.relatedTarget);
+  if (wasFoucsOutsideSwiper) {
+    wasPlayingBeforeBannerSwiperFocus = bannerSwiper.autoplay.running;
+    if (wasPlayingBeforeBannerSwiperFocus) {
+      setBannerSwiperPlayingState(false);
+    }
+  }
+}
 
-bannerSwiperPauseButtonList.forEach((button) => {
-  button.addEventListener('click', stopbannerSwiper);
-});
+function handleBannerSwiperFocusOut(e) {
+  const isFocusLeavingSwiper = !bannerSwiper.el.contains(e.relatedTarget);
+  if (isFocusLeavingSwiper && wasPlayingBeforeBannerSwiperFocus) {
+    setBannerSwiperPlayingState(true);
+  }
+}
 
 bannerSwiperPlayButtonList.forEach((button) => {
-  button.addEventListener('click', playbannerSwiper);
+  button.addEventListener('click', toggleBannerSwiperPlay);
 });
+
+bannerSwiper.el.addEventListener('focusin', handleBannerSwiperFocusIn);
+bannerSwiper.el.addEventListener('focusout', handleBannerSwiperFocusOut);

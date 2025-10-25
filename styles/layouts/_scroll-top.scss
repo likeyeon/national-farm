@@ -11,7 +11,7 @@
   height: 40px;
   background-color: colors.$green;
   border-radius: 50%;
-  outline: 14px solid rgba(26, 167, 158, 0.1);
+  box-shadow: 0 0 0 14px rgba(26, 167, 158, 0.1);
 
   &-button {
     width: 100%;

@@ -1,37 +1,51 @@
 import { popupSwiper } from './swiper.js';
 
-const popupSwiperBanner = document.querySelector('.popup');
-const popupSwiperPlayButtonList = popupSwiperBanner.querySelectorAll(
-  '.play-button-wrapper button'
+const popupContainer = document.querySelector('.popup');
+const popupSwiperWrapper = popupSwiper.el.querySelector('.swiper-wrapper');
+const popupSwiperPlayButton = popupContainer.querySelector(
+  '.play-button-wrapper'
 );
-const popupSwiperPauseButton = popupSwiperBanner.querySelector(
-  '.swiper-button-pause'
-);
-const popupSwiperPlayButton = popupSwiperBanner.querySelector(
+const popupSwiperPlayImg = popupSwiperPlayButton.querySelector(
   '.swiper-button-play'
 );
+const popupSwiperPauseImg = popupSwiperPlayButton.querySelector(
+  '.swiper-button-pause'
+);
+let wasPlayingBeforePopupSwiperFocus = true;
 
-// 슬라이드 중지
-function stoppopupSwiper() {
-  popupSwiperPlayButtonList.forEach((button) => {
-    button.classList.remove('is-active');
-    button.setAttribute('aria-hidden', '');
-  });
-  popupSwiperPlayButton.classList.add('is-active');
-  popupSwiperPlayButton.removeAttribute('aria-hidden');
-  popupSwiper.autoplay.stop();
+function setpopupSwiperPlayingState(isPlaying) {
+  if (isPlaying) {
+    popupSwiper.autoplay.start();
+    popupSwiperPlayImg.classList.remove('is-active');
+    popupSwiperPauseImg.classList.add('is-active');
+    popupSwiperWrapper.setAttribute('aria-live', 'off');
+  } else {
+    popupSwiper.autoplay.stop();
+    popupSwiperPlayImg.classList.add('is-active');
+    popupSwiperPauseImg.classList.remove('is-active');
+    popupSwiperWrapper.setAttribute('aria-live', 'polite');
+  }
 }
 
-// 슬라이드 재생
-function playpopupSwiper() {
-  popupSwiperPlayButtonList.forEach((button) => {
-    button.classList.remove('is-active');
-    button.setAttribute('aria-hidden', '');
-  });
-  popupSwiperPauseButton.classList.add('is-active');
-  popupSwiperPauseButton.removeAttribute('aria-hidden');
-  popupSwiper.autoplay.start();
+function togglepopupSwiperPlay() {
+  const isCurrentlyPlaying = popupSwiper.autoplay.running;
+  setpopupSwiperPlayingState(!isCurrentlyPlaying);
 }
 
-popupSwiperPauseButton.addEventListener('click', stoppopupSwiper);
-popupSwiperPlayButton.addEventListener('click', playpopupSwiper);
+function handlepopupSwiperFocusIn() {
+  wasPlayingBeforePopupSwiperFocus = popupSwiper.autoplay.running;
+  if (wasPlayingBeforePopupSwiperFocus) {
+    setpopupSwiperPlayingState(false);
+  }
+}
+
+function handlepopupSwiperFocusOut(e) {
+  const isFocusLeavingSwiper = !popupSwiper.el.contains(e.relatedTarget);
+  if (isFocusLeavingSwiper && wasPlayingBeforePopupSwiperFocus) {
+    setpopupSwiperPlayingState(true);
+  }
+}
+
+popupSwiperPlayButton.addEventListener('click', togglepopupSwiperPlay);
+popupSwiper.el.addEventListener('focusin', handlepopupSwiperFocusIn);
+popupSwiper.el.addEventListener('focusout', handlepopupSwiperFocusOut);

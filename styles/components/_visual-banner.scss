@@ -106,16 +106,20 @@
       @include flexbox.flexbox;
 
       button {
-        display: none;
+        @include flexbox.flexbox;
+
+        img {
+          display: none;
+
+          &.is-active {
+            display: block;
+          }
+        }
       }
 
-      .swiper-button-play img {
+      .swiper-button-play {
         position: relative;
         right: -1px;
-      }
-
-      .is-active {
-        @include flexbox.flexbox;
       }
     }
   }

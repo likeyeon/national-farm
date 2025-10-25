@@ -37,6 +37,8 @@
   width: 480px;
   border-radius: 20px;
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   &-swiper {
     // height: 100%;
@@ -70,6 +72,7 @@
     z-index: z-indexes.$swiper-button-level;
     padding: 8% 5% 6% 5%;
     border-radius: 0 0 20px 10px;
+    order: 1;
 
     .title {
       display: inline-block;
@@ -125,16 +128,15 @@
       @include flexbox.flexbox;
 
       button {
-        display: none;
-      }
-
-      .swiper-button-play img {
-        position: relative;
-        right: -1px;
-      }
-
-      .is-active {
         @include flexbox.flexbox;
+
+        img {
+          display: none;
+
+          &.is-active {
+            display: block;
+          }
+        }
       }
     }
   }

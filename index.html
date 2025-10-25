@@ -980,12 +980,35 @@
           <div class="row">
             <div class="visual">
               <div class="visual-banner">
+                <div class="swiper-button-wrapper">
+                  <div class="swiper-index"></div>
+                  <button class="swiper-button-prev">
+                    <img src="./assets/images/icons/prev_btn.svg" alt="" />
+                  </button>
+                  <div class="play-button-wrapper">
+                    <button>
+                      <img
+                        class="swiper-button-pause is-active"
+                        src="./assets/images/icons/pause_btn.svg"
+                        alt="비주얼 배너 슬라이드 일시정지"
+                      />
+                      <img
+                        class="swiper-button-play"
+                        src="./assets/images/icons/play_btn.svg"
+                        alt="비주얼 배너 슬라이드 재생"
+                      />
+                    </button>
+                  </div>
+                  <button class="swiper-button-next">
+                    <img src="./assets/images/icons/next_btn.svg" alt="" />
+                  </button>
+                </div>
                 <div
                   class="visual-swiper"
                   role="region"
                   aria-label="비주얼 배너 슬라이드"
                 >
-                  <div class="swiper-wrapper">
+                  <div class="swiper-wrapper" aria-live="off">
                     <div class="swiper-slide">
                       <a href="/" target="_blank" rel="noopener noreferrer">
                         <img
@@ -1075,30 +1098,6 @@
                       </a>
                     </div>
                   </div>
-                </div>
-                <div class="swiper-button-wrapper">
-                  <div class="swiper-index" aria-live="polite"></div>
-                  <button class="swiper-button-prev">
-                    <img src="./assets/images/icons/prev_btn.svg" alt="" />
-                  </button>
-                  <div class="play-button-wrapper">
-                    <button
-                      class="swiper-button-pause is-active"
-                      aria-label="정지"
-                    >
-                      <img src="./assets/images/icons/pause_btn.svg" alt="" />
-                    </button>
-                    <button
-                      class="swiper-button-play"
-                      aria-label="재생"
-                      aria-hidden
-                    >
-                      <img src="./assets/images/icons/play_btn.svg" alt="" />
-                    </button>
-                  </div>
-                  <button class="swiper-button-next">
-                    <img src="./assets/images/icons/next_btn.svg" alt="" />
-                  </button>
                 </div>
               </div>
               <div class="visual-info">
@@ -1377,12 +1376,49 @@
             <div class="box-wrapper">
               <div class="left-box">
                 <div class="popup">
+                  <div class="swiper-text-box">
+                    <div class="title">
+                      <h3>팝업 알리미</h3>
+                    </div>
+
+                    <div class="swiper-button-wrapper">
+                      <div class="swiper-index"></div>
+                      <div class="swiper-control">
+                        <button class="swiper-button-prev">
+                          <img
+                            src="./assets/images/icons/wh-prev-btn.svg"
+                            alt=""
+                          />
+                        </button>
+                        <div class="play-button-wrapper">
+                          <button>
+                            <img
+                              class="swiper-button-pause is-active"
+                              src="./assets/images/icons/wh-pause-btn.svg"
+                              alt="팝업 배너 슬라이드 일시정지"
+                            />
+                            <img
+                              class="swiper-button-play"
+                              src="./assets/images/icons/wh-play-btn.png"
+                              alt="팝업 배너 슬라이드 재생"
+                            />
+                          </button>
+                        </div>
+                        <button class="swiper-button-next">
+                          <img
+                            src="./assets/images/icons/wh-next-btn.svg"
+                            alt=""
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                   <div
                     class="popup-swiper"
                     role="region"
                     aria-label="비주얼 배너 슬라이드"
                   >
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper" aria-live="off">
                       <div class="swiper-slide">
                         <a href="/" target="_blank" rel="noopener noreferrer">
                           <img
@@ -1470,50 +1506,6 @@
                             alt="농산물표준규격 등급도감 자세히보기 (새 탭에서 열림)"
                           />
                         </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-text-box">
-                    <div class="title">
-                      <h3>팝업 알리미</h3>
-                    </div>
-
-                    <div class="swiper-button-wrapper">
-                      <div class="swiper-index" aria-live="polite"></div>
-                      <div class="swiper-control">
-                        <button class="swiper-button-prev">
-                          <img
-                            src="./assets/images/icons/wh-prev-btn.svg"
-                            alt=""
-                          />
-                        </button>
-                        <div class="play-button-wrapper">
-                          <button
-                            class="swiper-button-pause is-active"
-                            aria-label="정지"
-                          >
-                            <img
-                              src="./assets/images/icons/wh-pause-btn.svg"
-                              alt=""
-                            />
-                          </button>
-                          <button
-                            class="swiper-button-play"
-                            aria-label="재생"
-                            aria-hidden
-                          >
-                            <img
-                              src="./assets/images/icons/wh-play-btn.png"
-                              alt=""
-                            />
-                          </button>
-                        </div>
-                        <button class="swiper-button-next">
-                          <img
-                            src="./assets/images/icons/wh-next-btn.svg"
-                            alt=""
-                          />
-                        </button>
                       </div>
                     </div>
                   </div>
@@ -1772,12 +1764,26 @@
                 <button class="button-prev">
                   <img src="./assets/images/icons/prev_btn.svg" alt="" />
                 </button>
-                <div class="button-middle-wrapper">
+                <!-- <div class="button-middle-wrapper">
                   <button class="button-pause is-active" aria-label="정지">
                     <img src="./assets/images/icons/pause_btn.svg" alt="" />
                   </button>
                   <button class="button-play" aria-label="재생" aria-hidden>
                     <img src="./assets/images/icons/play_btn.svg" alt="" />
+                  </button>
+                </div> -->
+                <div class="play-button-wrapper">
+                  <button>
+                    <img
+                      class="button-pause is-active"
+                      src="./assets/images/icons/pause_btn.svg"
+                      alt="비주얼 배너 슬라이드 일시정지"
+                    />
+                    <img
+                      class="button-play"
+                      src="./assets/images/icons/play_btn.svg"
+                      alt="비주얼 배너 슬라이드 재생"
+                    />
                   </button>
                 </div>
                 <button class="button-next">
@@ -1786,6 +1792,36 @@
               </div>
             </div>
             <div class="banner-wrapper">
+              <div class="banner-control">
+                <button class="button-prev">
+                  <img src="./assets/images/icons/prev_btn.svg" alt="" />
+                </button>
+                <!-- <div class="button-middle-wrapper">
+                  <button class="button-pause is-active" aria-label="정지">
+                    <img src="./assets/images/icons/pause_btn.svg" alt="" />
+                  </button>
+                  <button class="button-play" aria-label="재생" aria-hidden>
+                    <img src="./assets/images/icons/play_btn.svg" alt="" />
+                  </button>
+                </div> -->
+                <div class="play-button-wrapper">
+                  <button>
+                    <img
+                      class="button-pause is-active"
+                      src="./assets/images/icons/pause_btn.svg"
+                      alt="비주얼 배너 슬라이드 일시정지"
+                    />
+                    <img
+                      class="button-play"
+                      src="./assets/images/icons/play_btn.svg"
+                      alt="비주얼 배너 슬라이드 재생"
+                    />
+                  </button>
+                </div>
+                <button class="button-next">
+                  <img src="./assets/images/icons/next_btn.svg" alt="" />
+                </button>
+              </div>
               <div class="banner-title">
                 <img src="./assets/images/icons/banner-icon.png" alt="" />
                 <h3>배너모음</h3>
@@ -1939,22 +1975,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="banner-control">
-                <button class="button-prev">
-                  <img src="./assets/images/icons/prev_btn.svg" alt="" />
-                </button>
-                <div class="button-middle-wrapper">
-                  <button class="button-pause is-active" aria-label="정지">
-                    <img src="./assets/images/icons/pause_btn.svg" alt="" />
-                  </button>
-                  <button class="button-play" aria-label="재생" aria-hidden>
-                    <img src="./assets/images/icons/play_btn.svg" alt="" />
-                  </button>
-                </div>
-                <button class="button-next">
-                  <img src="./assets/images/icons/next_btn.svg" alt="" />
-                </button>
               </div>
             </div>
           </div>

@@ -68,6 +68,7 @@
     &-control {
       @include flexbox.flexbox;
       gap: 4px;
+      order: 1;
 
       button {
         width: 25px;
@@ -91,15 +92,17 @@
         }
       }
 
-      .button-middle-wrapper {
+      .play-button-wrapper {
         button {
-          display: none;
-        }
+          @include flexbox.flexbox;
 
-        .is-active {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          img {
+            display: none;
+
+            &.is-active {
+              display: block;
+            }
+          }
         }
 
         .button-play {
