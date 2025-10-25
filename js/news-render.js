@@ -11,9 +11,9 @@ function onShiftTabBoardItem() {
     newsBoardListItems[0].addEventListener('keydown', function (e) {
       if (e.shiftKey && e.keyCode === keydownTab) {
         const activeNewBoardTabItem = document.querySelector(
-          '.news .news-tab-item.is-active'
+          '.news .news-tab-list li.is-active'
         );
-        activeNewBoardTabItem.focus();
+        activeNewBoardTabItem.children[0].focus();
         e.preventDefault();
       }
     });
