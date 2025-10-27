@@ -1,6 +1,8 @@
 const selectElement = document.querySelector('.global-header .agency-select');
 const selectListBox = selectElement.querySelector('.agency-listbox');
 const selectOptionItems = selectListBox.querySelectorAll('li');
+const selectOptionLinks = selectListBox.querySelectorAll('li > a');
+const selectOptionLength = selectOptionLinks.length;
 const selectedButton = selectElement.querySelector('.agency-selected');
 
 function closeSelectOnClickOutside(e) {
@@ -34,5 +36,22 @@ selectOptionItems.forEach((item) => {
     if (item.dataset.href) {
       location.href = item.dataset.href;
     }
+  });
+});
+
+function handleKeydownSelectOption(e, idx) {
+  const keyCode = e.code;
+  if (keyCode === 'ArrowUp' && idx > 0) {
+    e.preventDefault();
+    selectOptionLinks[idx - 1].focus();
+  } else if (keyCode === 'ArrowDown' && idx < selectOptionLength - 1) {
+    e.preventDefault();
+    selectOptionLinks[idx + 1].focus();
+  }
+}
+
+selectOptionLinks.forEach((item, idx) => {
+  item.addEventListener('keydown', function (e) {
+    handleKeydownSelectOption(e, idx);
   });
 });
