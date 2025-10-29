@@ -55,7 +55,7 @@
       <a href="#main">본문 바로가기</a>
     </div>
 
-    <header class="global-header">
+    <header id="header">
       <div class="header-top-wrapper lg-only">
         <div class="container">
           <div class="row">
@@ -153,7 +153,10 @@
                     </a>
                   </h1>
                   <a class="logo-sub" href="/">
-                    <img src="./assets/images/logo-mark.png" alt="국정목표" />
+                    <img
+                      src="./assets/images/logo-mark.png"
+                      alt="다시 대한민국! 새로운 국민의 나라"
+                    />
                   </a>
                 </div>
 
@@ -566,7 +569,7 @@
       </div>
     </header>
 
-    <aside class="drawer lg-hidden" aria-label="사이드바" inert>
+    <aside id="drawer" class="drawer lg-hidden" inert>
       <header class="drawer-header">
         <h2 class="sr-only">부가 기능</h2>
         <ul class="util-group">
@@ -974,12 +977,13 @@
     </aside>
 
     <main id="main">
-      <div id="section-01" class="section-01">
+      <section id="visual">
         <div class="visual-bg"></div>
         <div class="container">
           <div class="row">
             <div class="visual">
               <div class="visual-banner">
+                <h2 class="sr-only">메인 배너 모음</h2>
                 <div class="swiper-button-wrapper">
                   <div class="swiper-index"></div>
                   <button class="swiper-button-prev">
@@ -1289,8 +1293,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div id="section-02" class="section-02">
+      </section>
+      <section id="main-work">
         <div class="container">
           <div class="row">
             <div class="main-work">
@@ -1370,8 +1374,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div id="section-03" class="section-03">
+      </section>
+      <section id="service">
         <div class="container">
           <div class="row">
             <div class="box-wrapper">
@@ -1656,8 +1660,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div id="section-04" class="section-04">
+      </section>
+      <section id="news">
         <div class="decobox"></div>
         <div class="container">
           <div class="row">
@@ -1753,8 +1757,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div id="banner-collect" class="banner-collect">
+      </section>
+      <section id="banner-collect" class="banner-collect">
         <div class="container">
           <div class="row">
             <div class="banner-mobile">
@@ -1965,10 +1969,10 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </main>
 
-    <footer class="footer">
+    <footer id="footer" class="footer">
       <div class="container">
         <div class="row">
           <div class="footer-inner">

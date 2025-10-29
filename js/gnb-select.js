@@ -1,4 +1,4 @@
-const selectElement = document.querySelector('.global-header .agency-select');
+const selectElement = document.querySelector('header .agency-select');
 const selectListBox = selectElement.querySelector('.agency-listbox');
 const selectOptionItems = selectListBox.querySelectorAll('li');
 const selectOptionLinks = selectListBox.querySelectorAll('li > a');

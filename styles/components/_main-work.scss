@@ -4,7 +4,7 @@
 @use '../mixins/responsive';
 @use '../mixins/position';
 
-.section-02 {
+#main-work {
   margin-top: 3em;
 
   @media screen and (max-width: 991px) {
