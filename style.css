@@ -405,7 +405,7 @@ address {
   }
 }
 
-.global-header {
+#header {
   position: fixed;
   top: 0;
   left: 0;
@@ -1247,7 +1247,7 @@ main {
   transform: translateY(0);
 }
 
-.section-01 {
+#visual {
   position: relative;
 }
 
@@ -1663,11 +1663,11 @@ main {
   }
 }
 
-.section-03 {
+#service {
   position: relative;
   margin-top: 4em;
 }
-.section-03 .left-box {
+#service .left-box {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -1676,18 +1676,18 @@ main {
   position: relative;
 }
 @media screen and (max-width: 1520px) {
-  .section-03 .left-box {
+  #service .left-box {
     width: 100%;
     padding-bottom: 2.5em;
   }
 }
 @media screen and (max-width: 1360px) {
-  .section-03 .left-box {
+  #service .left-box {
     flex-direction: column;
   }
 }
 @media screen and (max-width: 991px) {
-  .section-03 {
+  #service {
     margin-top: 2.813em;
   }
 }
@@ -1843,11 +1843,11 @@ main {
   }
 }
 
-.section-02 {
+#main-work {
   margin-top: 3em;
 }
 @media screen and (max-width: 991px) {
-  .section-02 {
+  #main-work {
     margin-top: 2em;
   }
 }
@@ -2480,12 +2480,12 @@ main {
   }
 }
 
-.section-04 {
+#news {
   margin-top: 3.5em;
   margin-bottom: 3em;
   position: relative;
 }
-.section-04 .decobox {
+#news .decobox {
   position: absolute;
   top: 0;
   left: 0;
@@ -2496,17 +2496,17 @@ main {
   border-radius: 0 110px 20px 0;
 }
 @media screen and (max-width: 1100px) {
-  .section-04 .decobox {
+  #news .decobox {
     width: 85%;
   }
 }
 @media screen and (max-width: 991px) {
-  .section-04 {
+  #news {
     margin-top: 2em;
   }
 }
 @media screen and (max-width: 600px) {
-  .section-04 .decobox {
+  #news .decobox {
     border-radius: 0 70px 10px 0;
   }
 }
