@@ -28,16 +28,11 @@ newsTabItems.forEach((item, idx) => {
   item.addEventListener('keydown', function (e) {
     switch (e.keyCode) {
       case keydownTab:
-        if (e.shiftKey) {
-          newsTabMoreButton.focus();
-          e.preventDefault();
-        } else {
-          const activeNewsBoardItem = document.querySelector(
-            '.news-board-list.is-active a'
-          );
-          activeNewsBoardItem.focus();
-          e.preventDefault();
-        }
+        const activeNewsBoardItem = document.querySelector(
+          '.news-board-list.is-active a'
+        );
+        activeNewsBoardItem.focus();
+        e.preventDefault();
         break;
       case keydownRight:
         if (idx < newsTabItemsLength - 1) {
