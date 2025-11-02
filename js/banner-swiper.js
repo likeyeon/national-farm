@@ -1,6 +1,6 @@
 import { bannerSwiper } from './swiper.js';
 
-const bannerWrapper = document.querySelector('.banner-collect .banner-wrapper');
+const bannerWrapper = document.querySelector('.banner-collect');
 const bannerSwiperPlayButtonList = bannerWrapper.querySelectorAll(
   '.play-button-wrapper button'
 );
