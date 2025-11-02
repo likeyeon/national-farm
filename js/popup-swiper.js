@@ -1,7 +1,9 @@
 import { popupSwiper } from './swiper.js';
 
 const popupContainer = document.querySelector('.popup');
-const popupSwiperLive = popupSwiper.el.querySelector('.swiper-live');
+const popupSwiperIndexNotification = popupSwiper.el.querySelector(
+  '.swiper-index-notification'
+);
 const popupSwiperPlayButton = popupContainer.querySelector(
   '.play-button-wrapper'
 );
@@ -18,12 +20,12 @@ function setpopupSwiperPlayingState(isPlaying) {
     popupSwiper.autoplay.start();
     popupSwiperPlayImg.classList.remove('is-active');
     popupSwiperPauseImg.classList.add('is-active');
-    popupSwiperLive.setAttribute('aria-live', 'off');
+    popupSwiperIndexNotification.setAttribute('aria-live', 'off');
   } else {
     popupSwiper.autoplay.stop();
     popupSwiperPlayImg.classList.add('is-active');
     popupSwiperPauseImg.classList.remove('is-active');
-    popupSwiperLive.setAttribute('aria-live', 'polite');
+    popupSwiperIndexNotification.setAttribute('aria-live', 'polite');
   }
 }
 

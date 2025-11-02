@@ -7,8 +7,7 @@ function updateSlideA11y(swiper) {
   const total = slides.length - looped * 2;
   for (let i = 0; i < slides.length; i++) {
     slides[i].setAttribute('role', 'group');
-    const realIndex =
-      (slides[i].getAttribute('data-swiper-slide-index') || i % total) - 0;
+    const realIndex = slides[i].getAttribute('data-swiper-slide-index') - 0;
     slides[i].setAttribute('aria-label', `${realIndex + 1} / ${total}`);
   }
 }
@@ -17,13 +16,13 @@ function updateInertAttribute(swiper) {
   const slides = Array.from(swiper.slides);
   const total = slides.length;
   const visibleCount = swiper.slidesPerViewDynamic(); // 현재 보이는 슬라이드 개수
-  const activeIndex = swiper.activeIndex;
+  const activeIndex = swiper.activeIndex; // 0
 
   // 모든 슬라이드 inert 처리
   slides.forEach((slide) => slide.setAttribute('inert', ''));
 
   // 중심 기준 계산
-  const half = Math.floor(visibleCount / 2);
+  const half = Math.floor(visibleCount / 2); // 1
 
   // 보이는 영역 내 슬라이드 inert 해제
   for (let i = -half; i <= half; i++) {
@@ -32,14 +31,13 @@ function updateInertAttribute(swiper) {
   }
 }
 
-function updateSrPagination(swiper) {
-  const liveRegion = swiper.el.querySelector('.swiper-live');
-
+function updateIndexNotification(swiper) {
+  const swiperIndexNotification = swiper.el.querySelector(
+    '.swiper-index-notification'
+  );
   const current = swiper.realIndex + 1; // 실제 현재 인덱스 (0부터 시작)
-  const total = swiper.slides.length - swiper.loopedSlides * 2; // 루프 복제 슬라이드 제외
-
   // 스크린 리더가 명확히 이해할 수 있도록 완전한 문장으로 작성
-  liveRegion.textContent = `전체 ${total}개의 슬라이드 중 ${current}번째 슬라이드로 이동`;
+  swiperIndexNotification.textContent = `${current}번째 슬라이드로 이동`;
 }
 
 const visualSwiper = new Swiper('.visual-swiper', {
@@ -72,7 +70,6 @@ const visualSwiper = new Swiper('.visual-swiper', {
   },
 
   a11y: {
-    enabled: true,
     prevSlideMessage: '이전 항목으로 이동',
     nextSlideMessage: '다음 항목으로 이동',
   },
@@ -84,7 +81,7 @@ const visualSwiper = new Swiper('.visual-swiper', {
     slideChange: function () {
       updateSlideA11y(this);
       updateInertAttribute(this);
-      updateSrPagination(this);
+      updateIndexNotification(this);
     },
   },
 });
@@ -130,7 +127,7 @@ const popupSwiper = new Swiper('.popup-swiper', {
     slideChange: function () {
       updateSlideA11y(this);
       updateInertAttribute(this);
-      updateSrPagination(this);
+      updateIndexNotification(this);
     },
   },
 });

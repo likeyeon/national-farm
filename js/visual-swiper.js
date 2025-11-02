@@ -1,7 +1,9 @@
 import { visualSwiper } from './swiper.js';
 
 const visualSwiperBanner = document.querySelector('.visual-banner');
-const visualSwiperIndexLive = visualSwiperBanner.querySelector('.swiper-live');
+const visualSwiperIndexNotification = visualSwiperBanner.querySelector(
+  '.swiper-index-notification'
+);
 const visualSwiperPlayButton = visualSwiperBanner.querySelector(
   '.play-button-wrapper'
 );
@@ -19,12 +21,12 @@ function setVisualSwiperPlayingState(isPlaying) {
     visualSwiper.autoplay.start();
     visualSwiperPlayImg.classList.remove('is-active');
     visualSwiperPauseImg.classList.add('is-active');
-    visualSwiperIndexLive.setAttribute('aria-live', 'off');
+    visualSwiperIndexNotification.setAttribute('aria-live', 'off');
   } else {
     visualSwiper.autoplay.stop();
     visualSwiperPlayImg.classList.add('is-active');
     visualSwiperPauseImg.classList.remove('is-active');
-    visualSwiperIndexLive.setAttribute('aria-live', 'polite');
+    visualSwiperIndexNotification.setAttribute('aria-live', 'polite');
   }
 }
 
@@ -50,5 +52,3 @@ function handleVisualSwiperFocusOut(e) {
 visualSwiperPlayButton.addEventListener('click', toggleVisualSwiperPlay);
 visualSwiper.el.addEventListener('focusin', handleVisualSwiperFocusIn);
 visualSwiper.el.addEventListener('focusout', handleVisualSwiperFocusOut);
-
-// ✅ 포커스 이동 시 현재 위치 기반으로 자연스럽게 이동하도록 수정
