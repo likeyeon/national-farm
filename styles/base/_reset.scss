@@ -87,10 +87,16 @@ select,
 textarea {
   border: 0;
   background-color: transparent;
+}
 
+a,
+button,
+input,
+select,
+textarea {
   /* 키보드로 버튼에 포커스 시 */
   &:focus-visible {
-    outline: -webkit-focus-ring-color auto 1px;
+    outline: colors.$black auto 1px;
   }
 
   /* 마우스, 터치로 버튼에 포커스 시 */
