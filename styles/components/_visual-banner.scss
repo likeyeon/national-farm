@@ -57,6 +57,18 @@
         height: 100%;
         object-fit: cover;
       }
+
+      position: relative;
+      overflow: hidden;
+
+      a:focus-visible::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border: 2px solid colors.$black;
+        border-radius: 20px;
+        pointer-events: none;
+      }
     }
   }
 

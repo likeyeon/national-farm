@@ -49,11 +49,22 @@
 
     .swiper-slide {
       bottom: -3px;
+      position: relative;
+      overflow: hidden;
 
       a {
         display: block;
         width: 100%;
         height: 100%;
+      }
+
+      a:focus-visible::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border: 2px solid colors.$black;
+        border-radius: 20px 20px 0 0;
+        pointer-events: none;
       }
 
       img {
