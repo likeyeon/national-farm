@@ -280,7 +280,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: #000 auto 1px;
+  outline: 2px solid #000;
 }
 a,
 button,
