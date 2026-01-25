@@ -240,6 +240,8 @@
 | -- | -- |
 | <img width="352" height="618" alt="image" src="https://github.com/user-attachments/assets/eb631ef2-d357-46ac-b552-4e5eddded7cf" /> | <img width="371" height="408" alt="image" src="https://github.com/user-attachments/assets/99cbb49e-f1c2-498a-849c-62eda8b57a6a" /> |
 
+(※ Alerts 항목은 클론코딩 특성상 모든 링크를 '/'로 통일하면서 발생한 경고입니다.)
+
 <br>
 
 ### 개선 내용
